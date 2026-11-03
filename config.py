@@ -38,8 +38,8 @@ SEND_EMAILS = bool(SMTP_USER and SMTP_PASSWORD)  # auto-enable when creds are se
 
 # ── Subscription tiers ───────────────────────────────────────────────
 TIERS = {
-    "Basic":  {"price": 99,  "max_systems": 50,  "sms_alerts": False, "white_label": False},
-    "Pro":    {"price": 299, "max_systems": 200, "sms_alerts": True,  "white_label": True},
+    "Basic":  {"price": 149,  "max_systems": 50,  "sms_alerts": False, "white_label": False},
+    "Pro":    {"price": 399, "max_systems": 200, "sms_alerts": True,  "white_label": True},
     "Enterprise": {"price": None, "max_systems": None, "sms_alerts": True, "white_label": True},
 }
 

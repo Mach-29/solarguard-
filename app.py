@@ -102,7 +102,7 @@ def render_sidebar():
                 email2 = st.text_input("Email", key="signup_email")
                 password2 = st.text_input("Password", type="password", key="signup_pw")
                 tier = st.selectbox("Plan", ["Basic", "Pro"],
-                                    format_func=lambda t: f"{t} — ${TIERS[t]['price']}/mo")
+                                    format_func=lambda t: f"{t} — A${TIERS[t]['price']}/mo AUD")
                 if st.button("Create Account", type="primary", use_container_width=True):
                     if company and email2 and password2:
                         try:
@@ -477,7 +477,7 @@ def page_settings():
         st.subheader("Your Subscription")
         tier = inst["tier"]
         info = TIERS[tier]
-        price = f"${info['price']}/month" if info["price"] else "Custom"
+        price = f"A${info['price']}/month AUD" if info["price"] else "Custom"
         st.markdown(f"**Current plan:** {tier} ({price})")
         if info["max_systems"]:
             systems = get_installer_systems(inst["installer_id"])
@@ -489,7 +489,7 @@ def page_settings():
         st.markdown("**Upgrade / Downgrade**")
         col_b, col_p, col_e = st.columns(3)
         with col_b:
-            st.markdown("### 🔵 Basic — $99/mo")
+            st.markdown("### 🔵 Basic — A$149/mo AUD")
             st.markdown("- Up to 50 systems")
             st.markdown("- Email alerts")
             if tier != "Basic":
@@ -500,7 +500,7 @@ def page_settings():
                     st.session_state.installer = df[df["installer_id"] == inst["installer_id"]].iloc[0].to_dict()
                     st.rerun()
         with col_p:
-            st.markdown("### 🟣 Pro — $299/mo")
+            st.markdown("### 🟣 Pro — A$399/mo AUD")
             st.markdown("- Up to 200 systems")
             st.markdown("- SMS + email alerts")
             st.markdown("- White-label reports")
@@ -580,7 +580,7 @@ if nav is None:
         st.write("Turn service calls into trust-building moments. Position yourself as the proactive expert.")
     st.divider()
     f1, f2, f3, f4 = st.columns(4)
-    f1.metric("Starting at", "$99/mo")
+    f1.metric("Starting at", "A$149/mo AUD")
     f2.metric("Setup time", "< 5 min")
     f3.metric("Plan options", "3 tiers")
     f4.metric("Demo systems", "5 preloaded")
